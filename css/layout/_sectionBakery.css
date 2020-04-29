@@ -6,10 +6,10 @@
     border: 1px solid green;
     min-width: 250px;
     max-width: 400px;
+    padding-top: 15px;
+    height: 100vh;
+    text-align: center;
     background: radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
-    /*background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
-    /*background: rgb(117,143,160);
-    background: radial-gradient(circle, rgba(117,143,160,1) 0%, rgba(13,25,33,1) 100%);*/
 }
 
 #cookies {
