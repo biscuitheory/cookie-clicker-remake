@@ -1,0 +1,51 @@
+#bakery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    flex: 1;
+    border: 1px solid green;
+    min-width: 250px;
+    max-width: 400px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
+    /*background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    /*background: rgb(117,143,160);
+    background: radial-gradient(circle, rgba(117,143,160,1) 0%, rgba(13,25,33,1) 100%);*/
+}
+
+#cookies {
+    margin-top: 2vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+}
+
+#cookiesStock {
+    font-size: 1.8rem;
+}
+
+#cookiesPerSecond {
+    font-size: 1rem;
+}
+
+#bigCookie {
+    margin-top: 8vh;
+    background-image: url(/assets/images/perfect-cookie.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+    filter: drop-shadow(0 0 3rem #ffffff);
+    width: 225px;
+    height: 225px;
+}
+
+#bigCookie:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: ease;
+}
+
+#bigCookie:active {
+    cursor: pointer;
+    scale: 0.95;
+    transition: ease;
+}

@@ -1,0 +1,7 @@
+#production {
+    border: 1px solid blue;
+    min-width: 500px;
+    flex: 2;
+    overflow-y: scroll;
+    height: ;
+}
