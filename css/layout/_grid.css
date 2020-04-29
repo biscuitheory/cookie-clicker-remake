@@ -1,1 +1,19 @@
+#game {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 1px solid red;
+}
 
+#bakery, #production, #store {
+    padding-top: 15px;
+    height: 100vh;
+    text-align: center;
+}
+
+.separator {
+    background-image: url(/assets/images/panel-vertical.png);
+    height: 100vh;
+    width: 16px;
+    background-color: #205678;
+}
