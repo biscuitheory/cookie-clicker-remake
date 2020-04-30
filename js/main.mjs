@@ -1,8 +1,8 @@
-import Bakery from './classes/bakery.mjs';
+import Bakery from 'bakery';
 console.log(Bakery)
 
-import Building from './classes/building.mjs';
+import Building from 'building';
 console.log(Building)
 
-import data from './data.mjs';
+import data from 'data';
 console.log(data)
