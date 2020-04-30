@@ -1,8 +1,7 @@
-import buildings from './data.mjs';
+//import {buildings} from 'data';
 
 
-console.log(buildings)
-export class Bakery {
+export default class Bakery {
     constructor(name, cookies = 0, buildings, cookiesPerClick = 1, cookiesPerSecond = 0){
         this._name = name
         this._cookies = cookies
