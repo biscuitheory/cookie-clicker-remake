@@ -1,10 +1,10 @@
 export default class Building {
-    constructor(name, description, number = 0, cookiesPerSecond, cost){
-        this._name = name
-        this._description = description
-        this._number = number
-        this._cookiesPerSecond = cookiesPerSecond
-        this._cost = cost
+    constructor(name, description, number, cookiesPerSecond , cost){
+        this._name = name ||  'batiment';
+        this._description = description  ||  'chouchou';
+        this._number = number ||  0;
+        this._cookiesPerSecond = cookiesPerSecond ||  1;
+        this._cost = cost ||   1000;
     }
 
 }

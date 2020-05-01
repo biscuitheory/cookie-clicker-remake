@@ -1,17 +1,12 @@
-//affichage dynamique des informations de la boulangerie
-const updateBakery = () => {
-    let myBakery = document.querySelector('h2')
-    let cookiesStock = document.getElementById('cookiesStock')
-    let cookiesPerSecond = document.getElementById('cookiesPerSecond')
+export const updateBakary = () => {
+let titreBakery = document.querySelector('h2')
+titreBakery.innerHTML = myBakery.name
 
-    //affichage du nom de myBakery
-    window.addEventListener('load', (event) => {
-        // myBakery.innerHTML = myBakery._name
-        let nameBakery = myBakery.getAttribute('name');
-        
-        
-    });
+let stockSpan = document.getElementById('cookiesStock').querySelector('span')
+console.log(stockSpan)
+stockSpan.innerHTML = myBakery.cookies
+
+
+let perSecondSpan = document.getElementById('cookiesPerSecond').querySelector('span')
+perSecondSpan.innerHTML = myBakery.cookiesPerSecond
 }
-updateBakery()
-
-const myBakery = new Bakery();
