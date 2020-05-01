@@ -30,3 +30,45 @@
     text-shadow: 0px 1px 4px #000000;
     transition: 3s ease;
 }
+
+/*les tuiles*/
+/*les tuiles unlocked*/
+#store div + div {
+    position: relative;
+    background-image: url(/assets/images/store-tile.jpg);
+    cursor: pointer;
+    height: 10vh;
+    z-index: 0;
+}
+
+/*les tuiles locked*/
+#building-cursor .icon {
+    position: absolute;
+    background-image: url(/assets/images/buildings.png);
+    background-position-x: 35%;
+    height: 9vh;
+    width: 5vw;
+    border: 1px solid blue;
+    z-index: 1;
+}
+
+#building-grandma .icon {
+    position: absolute;
+    background-image: url(/assets/images/buildings.png);
+    background-position-x: 35%;
+    background-position-y: 6%;
+    height: 9vh;
+    width: 5vw;
+    border: 1px solid green;
+    z-index: 1;
+}
+
+/*les tuiles locked*/
+.disabled .cost {
+    color: #ff6666;
+    z-index: 1;
+}
+
+#store div + div::after {
+    opacity: 70%;
+}
