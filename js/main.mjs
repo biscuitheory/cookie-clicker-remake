@@ -4,3 +4,4 @@ console.log(Bakery)
 import Building from '../js/classes/building.mjs';
 console.log(Building)
 
+const myBakery = new Bakery();
