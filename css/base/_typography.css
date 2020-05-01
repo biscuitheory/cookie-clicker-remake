@@ -1,0 +1,21 @@
+#game {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    color: white;
+    user-select: none;
+    background-image: url(/assets/images/bg-blue.jpg);
+}
+
+h1 h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+h1 {
+    text-shadow: 0px 0px 4px black; 
+}
+
+h2 {
+    text-shadow: 0px 1px 4px black; 
+}
