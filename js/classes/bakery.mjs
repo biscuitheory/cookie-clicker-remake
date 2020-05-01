@@ -1,6 +1,6 @@
 //import {buildings} from 'data';
 export default class Bakery{
-    constructor(name ='le gros cookie', cookies = 5, buildings= [], cookiesPerClick = 1 , cookiesPerSecond = 0 ){
+    constructor(name ='le gros cookie', cookies = 0, buildings= [], cookiesPerClick = 1 , cookiesPerSecond = 0 ){
         this._name = name;
         this._cookies = cookies;
         this._buildings = buildings;
@@ -12,6 +12,10 @@ export default class Bakery{
     }
     get cookies(){
         return this._cookies
+    }
+
+    get cookiesPerSecond(){
+        return this._cookiesPerSecond
     }
 
 }
