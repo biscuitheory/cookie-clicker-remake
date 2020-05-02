@@ -50,7 +50,7 @@
     content: '';
     display: flex;
     flex-direction: column;
-    height: 20vh;
+    height: 9vh;
     cursor: pointer;
     background-image: url(/assets/images/store-tile.jpg);
 }
@@ -73,7 +73,7 @@
     position: absolute;
     background-image: url(/assets/images/buildings.png);
     background-position-x: 0;
-    height: 18vh;
+    height: 9vh;
     width: 5vw;
     z-index: 1;
 }
@@ -111,7 +111,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 20vh;
+    height: 9vh;
     cursor: pointer;
     background-image: url(/assets/images/store-tile.jpg);
     background-color: black;
@@ -129,7 +129,7 @@
     position: absolute;
     background-image: url(/assets/images/buildings.png);
     background-position-x: 35%;
-    height: 18vh;
+    height: 9vh;
     width: 5vw;
     border: 1px solid blue;
     z-index: 1;
