@@ -12,63 +12,62 @@
     background: radial-gradient(circle, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
 }
 
-#buildings {
+/* le séparateur avec le texte BUILDINGS */
+#buildings::before {
     background-image: url(/assets/images/panel-horizontal.png);
     margin-top: 15px;
     min-height: 16px;
+    content: '';
+    display: block;
 }
 
 #buildings:hover::before {
-    display: flex;
+    display: block;
+    text-align: left;
+    /* display: flex;
     justify-content: flex-start;
-    align-items: space-around;
+    align-items: space-around; */
     content: 'Buildings';
     font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 0px 0px 4px #000000;
     text-shadow: 0px 1px 4px #000000;
-    transition: 3s ease;
+    /* transition: 3s ease; */
 }
 
 /*les tuiles*/
 /*les tuiles unlocked*/
-#store div + div {
+#buildings ~ div {
     position: relative;
     background-image: url(/assets/images/store-tile.jpg);
     cursor: pointer;
-    height: 10vh;
+    height: 25vh;
     z-index: 0;
+    border: 1px solid red;
 }
 
 /*les tuiles locked*/
-#building-cursor .icon {
+#buildings ~ div .icon {
     position: absolute;
     background-image: url(/assets/images/buildings.png);
     background-position-x: 35%;
-    height: 9vh;
+    height: 25vh;
     width: 5vw;
     border: 1px solid blue;
     z-index: 1;
 }
 
 #building-grandma .icon {
-    position: absolute;
-    background-image: url(/assets/images/buildings.png);
-    background-position-x: 35%;
     background-position-y: 6%;
-    height: 9vh;
-    width: 5vw;
-    border: 1px solid green;
-    z-index: 1;
 }
 
-/*les tuiles locked*/
+
 .disabled .cost {
     color: #ff6666;
     z-index: 1;
 }
 
-#store div + div::after {
+#buildings ~ div::before {
     opacity: 70%;
 }
