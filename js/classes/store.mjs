@@ -1,10 +1,10 @@
 //création 10 premières tuiles (boucle ?)
 
 //création élément div building-cursor
-export const store = document.getElementById('buildings')
-// let buildings = document.getElementById('buildings')
+export const store = document.getElementById('store')
+let buildings = document.getElementById('buildings')
 
-
+//création div #building-cursor
 let cursor = document.createElement('div')
 cursor.id = 'building-cursor'
 cursor.className = 'locked disabled'
@@ -33,7 +33,7 @@ numberCursor.className = 'number'
 cursor.appendChild(numberCursor)
 
 
-//création élément div building-grandma
+//création div #building-grandma
 let grandma = document.createElement('div')
 grandma.id = 'building-grandma'
 grandma.className = 'locked disabled'
