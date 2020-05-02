@@ -1,8 +1,7 @@
 //création 10 premières tuiles (boucle ?)
 
 //création élément div building-cursor
-export const store = document.getElementById('store')
-let buildings = document.getElementById('buildings')
+export const store = document.getElementById('buildings')
 
 //création div #building-cursor
 let cursor = document.createElement('div')
