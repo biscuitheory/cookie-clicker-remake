@@ -12,7 +12,7 @@
     background: radial-gradient(circle, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
 }
 
-/* le séparateur avec le texte BUILDINGS */
+/** le séparateur avec le texte BUILDINGS **/
 #buildings {
     background-image: url(/assets/images/panel-horizontal.png);
     margin-top: 15px;
@@ -23,13 +23,14 @@
     flex-direction: column;
 }
 
+/* texte BUILDINGS dans l'élément séparateur */
 #buildings::before {
     text-align: center;
     content: 'Buildings';
     position: absolute;
     padding: 1px 10px;
     border: none;
-    opacity: 0;
+    opacity: 0; /* fait apparaître le texte en retirant l'opacité */
     font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
@@ -38,13 +39,14 @@
 
 }
 
+/* cache le texte en ajoutant une opacité + transition douce */
 #buildings:hover::before {
     opacity: 1;
     transition: 0.75s;
 }
 
-/*les tuiles*/
-/*les tuiles version unlocked = visible*/
+/** les tuiles **/
+/* les tuiles mode UNLOCKED (visible) */
 #buildings > div {
     position: relative;
     content: '';
@@ -55,20 +57,20 @@
     background-image: url(/assets/images/store-tile.jpg);
 }
 
+/* ajuste hauteur des tuiles */
 #buildings > div::after  {
-    display: flex;
     content: '';
-    opacity: 1;
     height: 8vh;
 }
 
+/* effet ombre intérieure blanche au survol des tuiles */
 #buildings > div:hover {
     box-shadow: inset 0px 0px 15px 3px #ffffff;
     transition: 0.75s;
 }
 
-/* le contenu des tuiles */
-/* les icones des tuiles */
+/* le contenu des tuiles mode UNLOCKED */
+/* les icônes des tuiles + tuile cursor */
 #buildings > div .icon {
     position: absolute;
     background-image: url(/assets/images/buildings.png);
@@ -78,25 +80,12 @@
     z-index: 1;
 }
 
+/* icône de la tuile grandma */
 #building-grandma .icon {
     background-position-y: 6%;
 }
 
-/* le nom & coût */
-.cost {
-    position: absolute;
-    background-image: url(/assets/images/money.png);
-    background-repeat: no-repeat;
-    font-size: 0.7rem;
-    color: #66ff66;
-    z-index: 1;
-    bottom : 0;
-    margin-top: 5px;
-    margin-left: 70px;
-    padding-left: 20px;
-    padding-bottom: 12px;
-}
-
+/* le nom du type de building */
 .name {
     font-size: 1.3rem;
     font-weight: bold;
@@ -106,7 +95,24 @@
     text-align: left;
 }
 
-/* état tuile .disabled: avec fond sombre */
+/* le coût pour activer la tuile : texte + cookie */
+.cost {
+    position: absolute;
+    background-image: url(/assets/images/money.png);
+    background-repeat: no-repeat;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-shadow: 0px 0px 4px #000000, 0px 1px 4px #000000;
+    color: #66ff66;
+    z-index: 1;
+    bottom : 0;
+    margin-top: 5px;
+    margin-left: 70px;
+    padding-left: 20px;
+    padding-bottom: 12px;
+}
+
+/* état tuile mode .DISABLED : ajout du fond sombre */
 #buildings > .disabled {
     position: relative;
     display: flex;
@@ -118,23 +124,19 @@
     opacity: 50%;
 }
 
-#buildings > .disabled::after  {
-    display: flex;
-    content: '';
-    opacity: 1;
-    height: 8vh;
-}
-
+/* contenu des tuiles mode .disabled */
+/* les icônes des tuiles */
 #buildings > .disabled .icon {
     position: absolute;
     background-image: url(/assets/images/buildings.png);
     background-position-x: 35%;
     height: 9vh;
     width: 5vw;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     z-index: 1;
 }
 
+/* le texte du coût mode .disabled */
 .disabled .cost {
     color: #ff6666;
 }
