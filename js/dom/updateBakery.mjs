@@ -1,4 +1,5 @@
 export const updateBakary = () => {
+
 let titreBakery = document.querySelector('h2')
 titreBakery.innerHTML = myBakery.name
 
@@ -9,4 +10,5 @@ stockSpan.innerHTML = myBakery.cookies
 
 let perSecondSpan = document.getElementById('cookiesPerSecond').querySelector('span')
 perSecondSpan.innerHTML = myBakery.cookiesPerSecond
+
 }
