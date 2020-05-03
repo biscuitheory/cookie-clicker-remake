@@ -27,6 +27,7 @@
 }
 
 #bigCookie {
+    position: relative;
     margin-top: 8vh;
     background-image: url(/assets/images/perfect-cookie.png);
     background-repeat: no-repeat;

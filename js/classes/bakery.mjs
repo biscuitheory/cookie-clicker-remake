@@ -7,15 +7,33 @@ export default class Bakery{
         this._cookiesPerClick = cookiesPerClick;
         this._cookiesPerSecond = cookiesPerSecond;  
     }
+
     get name(){
         return this._name
     }
+
     get cookies(){
         return this._cookies
+    }
+
+    get buildings(){
+        return this._buildings
+    }
+
+    get cookiesPerClick(){
+        return this._cookiesPerClick
     }
 
     get cookiesPerSecond(){
         return this._cookiesPerSecond
     }
 
+    //précise le nombre de cookies dans stock #cookies
+    bakeCookies(howMany){
+        return this._cookies += this._cookiesPerClick
+    }
+
+
 }
+
+

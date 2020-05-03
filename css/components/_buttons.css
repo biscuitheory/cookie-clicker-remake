@@ -1,0 +1,23 @@
+/* animation cookie */
+
+.plusOne {
+    position: absolute;
+    animation-name: plusOne;
+    animation-duration: 3s;
+}
+
+@keyframes plusOne {
+    0% {
+        top: 110px;
+    }
+    20% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+        top: -200px;
+    }
+}
