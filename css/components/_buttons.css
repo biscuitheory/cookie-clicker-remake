@@ -3,7 +3,7 @@
 .plusOne {
     position: absolute;
     animation-name: plusOne;
-    animation-duration: 3s;
+    animation-duration: 15s;
 }
 
 @keyframes plusOne {

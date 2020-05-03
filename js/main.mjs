@@ -36,9 +36,22 @@ bigCookie.addEventListener('click', (e) => {
     iconePlus.style.left = e.offsetX + 'px'
     bigCookie.appendChild(iconePlus)
 
+    //jouer le son clic
+    let playClickSound = document.createElement('audio')
+    playClickSound.src = `assets/sounds/click${(Math.floor(Math.random() * 7) + 1)}.mp3`
+    iconePlus.appendChild(playClickSound) //un enfant est crée à chaque clic
+    playClickSound.play()
+
     //retirer icone +1 
     iconePlus.addEventListener('animationend', (e) => {
         bigCookie.removeChild(iconePlus)
     });
+    
 })
+
+
+
+
+
+
 
