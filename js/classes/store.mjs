@@ -1,62 +1,62 @@
 //création 10 premières tuiles (boucle ?)
 
-//création élément div building-cursor
+import { buildings } from "../data.mjs"
+
+//création élément div building
 export const store = document.getElementById('buildings')
 
-//création div #building-cursor
-let cursor = document.createElement('div')
-cursor.id = 'building-cursor'
-cursor.className = 'locked disabled'
-store.appendChild(cursor)
+for (let i = 0; i < buildings.length; i++){
+    let divTuile = document.createElement('div')
+    divTuile.id = `building-${buildings[i].name.toLowerCase()}`
+    divTuile.className = 'locked disabled'
+    store.appendChild(divTuile)
 
-//création élément icon
-let iconCursor = document.createElement('div')
-iconCursor.className = 'icon'
-cursor.appendChild(iconCursor)
+    let iconTuile = document.createElement('div')
+    iconTuile.className = 'icon'
+    divTuile.appendChild(iconTuile)
 
-//création élément name
-let nameCursor = document.createElement('div')
-nameCursor.className = 'name'
-nameCursor.innerHTML = 'Cursor' //(? doit être affiché dynamiquement)
-cursor.appendChild(nameCursor)
+    let nameTuile = document.createElement('div')
+    nameTuile.className = 'name'
+    nameTuile.innerHTML = buildings[i].name
+    divTuile.appendChild(nameTuile)
 
-//création élément cost
-let costCursor = document.createElement('div')
-costCursor.className = 'cost'
-costCursor.innerHTML = 15 //(? doit être affiché dynamiquement)
-cursor.appendChild(costCursor)
+    let costTuile = document.createElement('div')
+    costTuile.className = 'cost'
+    costTuile.innerHTML = buildings[i].cost
+    divTuile.appendChild(costTuile)
 
-//création élément number
-let numberCursor = document.createElement('div')
-numberCursor.className = 'number'
-cursor.appendChild(numberCursor)
+    let numberTuile = document.createElement('div')
+    numberTuile.className = 'number'
+    divTuile.appendChild(numberTuile)
+
+}
 
 
-//création div #building-grandma
-let grandma = document.createElement('div')
-grandma.id = 'building-grandma'
-grandma.className = 'locked disabled'
-store.appendChild(grandma)
+// //création div #building-grandma
+// let grandma = document.createElement('div')
+// grandma.id = 'building-grandma'
+// grandma.className = 'locked disabled'
+// store.appendChild(grandma)
 
-//création élément icon
-let iconGrandma = document.createElement('div')
-iconGrandma.className = 'icon'
-grandma.appendChild(iconGrandma)
+// //création élément icon
+// let iconGrandma = document.createElement('div')
+// iconGrandma.className = 'icon'
+// grandma.appendChild(iconGrandma)
 
-//création élément name
-let nameGrandma = document.createElement('div')
-nameGrandma.className = 'name'
-nameGrandma.innerHTML = 'Grandma' //(? doit être affiché dynamiquement)
-grandma.appendChild(nameGrandma)
+// //création élément name
+// let nameGrandma = document.createElement('div')
+// nameGrandma.className = 'name'
+// nameGrandma.innerHTML = 'Grandma' //(? doit être affiché dynamiquement)
+// grandma.appendChild(nameGrandma)
 
-//création élément cost
-let costGrandma = document.createElement('div')
-costGrandma.className = 'cost'
-costGrandma.innerHTML = 100 //(? doit être affiché dynamiquement)
-grandma.appendChild(costGrandma)
+// //création élément cost
+// let costGrandma = document.createElement('div')
+// costGrandma.className = 'cost'
+// costGrandma.innerHTML = 100 //(? doit être affiché dynamiquement)
+// grandma.appendChild(costGrandma)
 
-//création élément number
-let numberGrandma = document.createElement('div')
-numberGrandma.className = 'number'
-grandma.appendChild(numberGrandma)
+// //création élément number
+// let numberGrandma = document.createElement('div')
+// numberGrandma.className = 'number'
+// grandma.appendChild(numberGrandma)
 

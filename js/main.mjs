@@ -10,6 +10,7 @@ console.log(store)
 import { buildings } from "./data.mjs"
 console.log(buildings)
 
+
 //information de la boulangerie 
 const myBakery = new Bakery();
 
@@ -51,23 +52,42 @@ bigCookie.addEventListener('click', (e) => {
     let grandma = document.getElementById('building-grandma')
     // let costCursor = document.getElementsByClassName('cost')
     // let cost = costCursor.innerHTML
-    if (myBakery.cookies >= 5){
-        cursor.classList.remove("locked")
-        cursor.classList.remove("disabled")
-        cursor.className = "unlocked enabled"
-        grandma.classList.remove("locked")
-        grandma.className = "disabled"
 
-        // cursor.className = cursor.className.replace(/\bmystyle\b/g, "unlocked enabled")
-    }
-    if (myBakery.cookies >= 10){
-        grandma.classList.remove("disabled")
-        grandma.className = "unlocked enabled"
+
+    for (let i = 0; i < buildings.length; i++){
+        let divTuile = document.getElementById(`building-${buildings[i].name.toLowerCase()}`)
+        let nextDivTuile = document.getElementById(`building-${buildings[i+1].name.toLowerCase()}`)  
+        let lastTuile = document.getElementById(`building-${buildings[i+2].name.toLowerCase()}`)  
+        lastTuile.style.display = 'none'
+        if (myBakery.cookies >= buildings[i].cost){
+            divTuile.classList.remove("locked")
+            divTuile.classList.remove("disabled")
+            divTuile.className = "unlocked enabled"
+            nextDivTuile.classList.remove("locked")
+            nextDivTuile.className = "disabled"  
+            lastTuile.style.display = 'block'
+        }
+            // cursor.className = cursor.className.replace(/\bmystyle\b/g, "unlocked enabled")
+        }
+
+        }
+    // if (myBakery.cookies >= 5){
+    //     cursor.classList.remove("locked")
+    //     cursor.classList.remove("disabled")
+    //     cursor.className = "unlocked enabled"
+    //     grandma.classList.remove("locked")
+    //     grandma.className = "disabled"
+
+    //     // cursor.className = cursor.className.replace(/\bmystyle\b/g, "unlocked enabled")
+    // }
+    // if (myBakery.cookies >= 10){
+    //     grandma.classList.remove("disabled")
+    //     grandma.className = "unlocked enabled"
        
-    }
+    // }
   
         
-})
+)
 
 
 

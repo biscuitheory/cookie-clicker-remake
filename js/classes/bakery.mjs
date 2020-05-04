@@ -1,4 +1,4 @@
-//import {buildings} from 'data';
+
 export default class Bakery{
     constructor(name ='le gros cookie', cookies = 0, buildings= [], cookiesPerClick = 1 , cookiesPerSecond = 0 ){
         this._name = name;

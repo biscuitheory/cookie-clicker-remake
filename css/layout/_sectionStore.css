@@ -36,7 +36,6 @@
     text-transform: uppercase;
     text-shadow: 0px 0px 4px rgba(0, 0, 0, 1), 0px 1px 4px rgba(0, 0, 0, 1);
     margin-top: -15px;
-
 }
 
 /* cache le texte en ajoutant une opacité + transition douce */
@@ -45,8 +44,7 @@
     transition: 0.75s;
 }
 
-/** les tuiles **/
-/* les tuiles mode UNLOCKED (visible) */
+/*** TUILES ***/
 #buildings > div {
     position: relative;
     content: '';
@@ -57,34 +55,17 @@
     background-image: url(/assets/images/store-tile.jpg);
 }
 
-/* .unlocked, .enabled {
-    background-color: coral;
-} */
-
 /* ajuste hauteur des tuiles */
 #buildings > div::after  {
     content: '';
-    height: 8vh;
+    height: 100vh;
 }
 
-/* effet ombre intérieure blanche au survol des tuiles */
-#buildings > .locked:hover {
-    box-shadow: inset 0px 0px 15px 3px #ffffff;
-    transition: 0.75s;
-}
-
-/* le contenu des tuiles mode UNLOCKED */
-
-/* effet ombre intérieure noire au clic des tuiles mode UNLOCKED & ENABLED */
-#buildings > .unlocked:active {
-    box-shadow: inset 0px 0px 15px 3px #000000;
-}
-
-/* les icônes des tuiles + tuile cursor */
-#buildings > div .icon {
+/*** CONTENU DES TUILES PAR DEFAUT ***/
+/* ICONES PAR DEFAUT */
+.icon {
     position: absolute;
     background-image: url(/assets/images/buildings.png);
-    background-position-x: 0;
     height: 9vh;
     width: 5vw;
     z-index: 1;
@@ -92,10 +73,41 @@
 
 /* icône de la tuile grandma */
 #building-grandma .icon {
-    background-position-y: 6%;
+    background-position-y: -70px;
 }
 
-/* le nom du type de building */
+/* icône de la tuile farm */
+#building-farm .icon {
+    background-position-y: -195px;
+}
+
+/* icône de la tuile mine */
+#building-mine .icon {
+    background-position-y: -260px;
+}
+
+/* icône de la tuile factory */
+#building-factory .icon {
+    background-position-y: -315px;
+}
+
+/* COST PAR DEFAUT */
+.cost {
+    position: absolute;
+    background-image: url(/assets/images/money.png);
+    background-repeat: no-repeat;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-shadow: 0px 0px 4px #000000, 0px 1px 4px #000000;
+    z-index: 1;
+    bottom : 0;
+    margin-top: 5px;
+    margin-left: 70px;
+    padding-left: 20px;
+    padding-bottom: 12px;
+}
+
+/* NAME PAR DEFAUT */
 .name {
     font-size: 1.3rem;
     font-weight: bold;
@@ -105,8 +117,40 @@
     text-align: left;
 }
 
-/* le coût pour activer la tuile : texte + cookie */
-.cost {
+/*** MODE LOCKED ***/
+/* TUILE LOCKED : sombres */
+.locked {
+    background-color: black;
+    opacity: 50%;
+}
+
+/* ICON LOCKED : noires */
+.locked .icon {
+    background-position-x: -70px;
+    background-position-y: 0px;
+}
+
+/*** MODE DISABLED ***/
+/* COST DISABLED */
+.disabled .cost {
+    color: #ff6666;
+}
+
+/* TUILE LOCKED & DISABLED : effet ombre intérieure blanche au survol des tuiles */
+#buildings > .locked:hover {
+    box-shadow: inset 0px 0px 15px 3px #ffffff;
+    transition: 0.75s;
+}
+
+/*** MODE UNLOCKED ***/
+/* ICON UNLOCKED : colorée */
+.unlocked .icon {
+    background-position-x: 0px;
+    background-position-y: 0px;
+}
+
+/* COST UNLOCKED */
+.unlocked .cost {
     position: absolute;
     background-image: url(/assets/images/money.png);
     background-repeat: no-repeat;
@@ -122,31 +166,14 @@
     padding-bottom: 12px;
 }
 
-/* état tuile mode .DISABLED : ajout du fond sombre */
-#buildings > .disabled {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 9vh;
-    cursor: pointer;
-    background-image: url(/assets/images/store-tile.jpg);
-    background-color: black;
-    opacity: 50%;
+/*** MODE ENABLED ***/
+/* COST ENABLED */
+.enabled .cost {
+    color: #66ff66;
 }
 
-/* contenu des tuiles mode .disabled */
-/* les icônes des tuiles */
-#buildings > .locked .icon {
-    position: absolute;
-    background-image: url(/assets/images/buildings.png);
-    background-position-x: 35%;
-    height: 9vh;
-    width: 5vw;
-    /* border: 1px solid blue; */
-    z-index: 1;
-}
-
-/* le texte du coût mode .disabled */
-.disabled .cost {
-    color: #ff6666;
+/* TUILE UNLOCKED & ENABLED */
+/* effet ombre intérieure noire au clic des tuiles mode UNLOCKED & ENABLED */
+#buildings > .unlocked:active {
+    box-shadow: inset 0px 0px 15px 3px #000000;
 }
