@@ -54,7 +54,7 @@ bigCookie.addEventListener('click', (e) => {
     // let cost = costCursor.innerHTML
 
 
-    for (let i = 0; i < buildings.length; i++){
+    for (let i = 0; i < buildings.length-1; i++){
         let divTuile = document.getElementById(`building-${buildings[i].name.toLowerCase()}`)
         let nextDivTuile = document.getElementById(`building-${buildings[i+1].name.toLowerCase()}`)  
         let lastTuile = document.getElementById(`building-${buildings[i+2].name.toLowerCase()}`)  
@@ -64,8 +64,8 @@ bigCookie.addEventListener('click', (e) => {
             divTuile.classList.remove("disabled")
             divTuile.className = "unlocked enabled"
             nextDivTuile.classList.remove("locked")
-            nextDivTuile.className = "disabled"  
-            lastTuile.style.display = 'block'
+            nextDivTuile.className = "unlocked disabled"  
+            lastTuile.style.display = 'flex'
         }
             // cursor.className = cursor.className.replace(/\bmystyle\b/g, "unlocked enabled")
         }

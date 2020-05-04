@@ -50,7 +50,7 @@
     content: '';
     display: flex;
     flex-direction: column;
-    height: 9vh;
+    height: 10vh;
     cursor: pointer;
     background-image: url(/assets/images/store-tile.jpg);
 }
@@ -58,7 +58,7 @@
 /* ajuste hauteur des tuiles */
 #buildings > div::after  {
     content: '';
-    height: 100vh;
+    height: 9vh;
 }
 
 /*** CONTENU DES TUILES PAR DEFAUT ***/
@@ -69,6 +69,11 @@
     height: 9vh;
     width: 5vw;
     z-index: 1;
+}
+
+/* icône de la tuile grandma */
+#building-cursor .icon {
+    background-position-y: 0px;
 }
 
 /* icône de la tuile grandma */
@@ -127,7 +132,6 @@
 /* ICON LOCKED : noires */
 .locked .icon {
     background-position-x: -70px;
-    background-position-y: 0px;
 }
 
 /*** MODE DISABLED ***/
@@ -146,7 +150,6 @@
 /* ICON UNLOCKED : colorée */
 .unlocked .icon {
     background-position-x: 0px;
-    background-position-y: 0px;
 }
 
 /* COST UNLOCKED */
