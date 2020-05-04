@@ -124,7 +124,7 @@
 
 /*** MODE LOCKED ***/
 /* TUILE LOCKED : sombres */
-.locked {
+.disabled {
     background-color: black;
     opacity: 50%;
 }

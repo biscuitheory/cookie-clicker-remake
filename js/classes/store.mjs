@@ -29,7 +29,14 @@ for (let i = 0; i < buildings.length; i++){
     numberTuile.className = 'number'
     divTuile.appendChild(numberTuile)
 
-}
+    if (buildings.length - 3 > i) {
+        divTuile.style.display = 'flex'
+    } else {
+        divTuile.style.display = 'none'
+    }
+} 
+
+
 
 
 // //création div #building-grandma
