@@ -17,7 +17,7 @@ let titreBakery = document.querySelector('h2')
 titreBakery.innerHTML = myBakery.name
 
 let stockSpan = document.getElementById('cookiesStock').querySelector('span')
-//console.log(stockSpan)
+// console.log(stockSpan)
 stockSpan.innerHTML = myBakery.cookies
 
 let perSecondSpan = document.getElementById('cookiesPerSecond').querySelector('span')
@@ -27,7 +27,7 @@ perSecondSpan.innerHTML = myBakery.cookiesPerSecond
 let bigCookie = document.getElementById('bigCookie');
 //au clic, une icone apparait et disparait
 bigCookie.addEventListener('click', (e) => {
-    stockSpan.innerHTML = myBakery.bakeCookies()
+    stockSpan.innerHTML = myBakery.bakeCookies(myBakery.cookiesPerClick)
     //afficher icone +1 lors d'un clic sur bigCookie
     let iconePlus = document.createElement('div')
     
@@ -47,7 +47,39 @@ bigCookie.addEventListener('click', (e) => {
         bigCookie.removeChild(iconePlus)
     });
     
+    let cursor = document.getElementById('building-cursor')
+    let grandma = document.getElementById('building-grandma')
+    // let costCursor = document.getElementsByClassName('cost')
+    // let cost = costCursor.innerHTML
+    if (myBakery.cookies >= 5){
+        cursor.classList.remove("locked")
+        cursor.classList.remove("disabled")
+        cursor.className = "unlocked enabled"
+        grandma.classList.remove("locked")
+        grandma.className = "disabled"
+
+        // cursor.className = cursor.className.replace(/\bmystyle\b/g, "unlocked enabled")
+    }
+    if (myBakery.cookies >= 10){
+        grandma.classList.remove("disabled")
+        grandma.className = "unlocked enabled"
+       
+    }
+  
+        
 })
+
+
+
+//activation & affichage des tuiles
+
+//activer et afficher tuile Cursor
+
+// console.log(unlockedEnabled)
+
+
+//activer et afficher tuile Grandma
+//if (bakeCookies(?) >= 100)
 
 
 

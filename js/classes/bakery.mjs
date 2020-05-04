@@ -30,7 +30,7 @@ export default class Bakery{
 
     //précise le nombre de cookies dans stock #cookies
     bakeCookies(howMany){
-        return this._cookies += this._cookiesPerClick
+        return this._cookies += howMany
     }
 
 

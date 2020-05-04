@@ -57,6 +57,10 @@
     background-image: url(/assets/images/store-tile.jpg);
 }
 
+/* .unlocked, .enabled {
+    background-color: coral;
+} */
+
 /* ajuste hauteur des tuiles */
 #buildings > div::after  {
     content: '';
@@ -64,12 +68,18 @@
 }
 
 /* effet ombre intérieure blanche au survol des tuiles */
-#buildings > div:hover {
+#buildings > .locked:hover {
     box-shadow: inset 0px 0px 15px 3px #ffffff;
     transition: 0.75s;
 }
 
 /* le contenu des tuiles mode UNLOCKED */
+
+/* effet ombre intérieure noire au clic des tuiles mode UNLOCKED & ENABLED */
+#buildings > .unlocked:active {
+    box-shadow: inset 0px 0px 15px 3px #000000;
+}
+
 /* les icônes des tuiles + tuile cursor */
 #buildings > div .icon {
     position: absolute;
@@ -126,7 +136,7 @@
 
 /* contenu des tuiles mode .disabled */
 /* les icônes des tuiles */
-#buildings > .disabled .icon {
+#buildings > .locked .icon {
     position: absolute;
     background-image: url(/assets/images/buildings.png);
     background-position-x: 35%;
