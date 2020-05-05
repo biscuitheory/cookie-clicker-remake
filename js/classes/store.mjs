@@ -8,12 +8,8 @@ console.log(Building)
 //création élément div building
 export const store = (bakery) => {
 const store = document.getElementById('buildings')
+
 //information des buildings
-
-// let numberTuile = document.getElementsByClassName('number')
-// numberTuile.innerHTML = myBuilding.number
-// console.log(myBuilding.number)
-
 for (let i = 0; i < bakery.buildings.length; i++){
     let divTuile = document.createElement('div')
     divTuile.id = `building-${bakery.buildings[i].name.toLowerCase()}`
@@ -57,18 +53,6 @@ for (let i = 0; i < bakery.buildings.length; i++){
 } 
 }
 
-// for (let i = 0; i < buildings.length-1; i++){
-//     let divTuile = document.getElementById(`building-${buildings[i].name.toLowerCase()}`)
-//     let numberTuile = document.getElementsByClassName('number')
-//     numberTuile.style.display = 'none'
-//     if (divTuile.className = "unlocked enabled"){
-//         divTuile.addEventListener('click', (e) => {
-//         Building.buy()
-
-
-//     })
-// }
-// }
 
 
 
