@@ -124,6 +124,7 @@
 
 /* NUMBER PAR DEFAUT */
 .number {
+    display: none;
     position: absolute;
     margin-left: 240px;
     margin-top: 5px;

@@ -42,14 +42,31 @@ for (let i = 0; i < bakery.buildings.length; i++){
         divTuile.style.display = 'none'
     }
 
+    // Achat d'un bâtiment de type Cursor
     divTuile.addEventListener('click', () => {
         if (divTuile.className == "unlocked enabled") {
-        bakery.buildings[i].buy()
+        // jouer le son clic
+        let playBuySound = document.createElement('audio')
+        playBuySound.src = `assets/sounds/buy${(Math.floor(Math.random() * 4) + 1)}.mp3`
+        divTuile.appendChild(playBuySound) //un enfant est crée à chaque clic
+        playBuySound.play()
+        
+        // Condition achat : uniquement si compte cookies > cout d'un batiment
+        if (bakery.cookies >= bakery.buildings[i].cost){
+        // pour faire apparaître le nombre de batiments achetés
+        divTuile.querySelector('.number').style.display = 'flex'
+        // applique la methode buyBuilding à la tuile sur laquelle on clique
+        bakery.buyBuilding(bakery.buildings[i])
+        // pour afficher dynamiquement sur la page le nombre de batiments achetés, le cout et le stock cookies
         divTuile.querySelector('.number').innerHTML = bakery.buildings[i].number
         divTuile.querySelector('.cost').innerHTML = bakery.buildings[i].cost
-     }
-    })
+        document.getElementById('cookiesStock').querySelector('span').innerHTML = bakery.cookies
+        document.getElementById('cookiesPerSecond').querySelector('span').innerHTML = bakery.cookiesPerSecond
+        }
+    
+        }
 
+    })
 } 
 }
 

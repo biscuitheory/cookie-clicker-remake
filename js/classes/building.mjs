@@ -1,7 +1,7 @@
 
 export default class Building {
     constructor(building){
-        const {name, description, number = 0, cookiesPerSecond, cost} = building
+        const {name, description, number = 1, cookiesPerSecond, cost} = building
         this._name = name
         this._description = description
         this._number = number
@@ -9,7 +9,6 @@ export default class Building {
         this._cost = cost
     }
     
-
     get name(){
         return this._name
     }
@@ -30,14 +29,16 @@ export default class Building {
         return this._cost
     }
 
+    set cost(cost){
+        this._cost = cost
+    }
+
     buy(){
+        console.log('Coucou')
         this._number += 1
         this._cost = Math.ceil(this._cost * 1.15)
         console.log(this._cost)
     }
     
-    
-    
-
 }
 
