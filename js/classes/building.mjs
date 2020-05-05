@@ -1,10 +1,43 @@
+
 export default class Building {
-    constructor(name, description, number, cookiesPerSecond , cost){
-        this._name = name ||  'batiment';
-        this._description = description  ||  'chouchou';
-        this._number = number ||  0;
-        this._cookiesPerSecond = cookiesPerSecond ||  1;
-        this._cost = cost ||   1000;
+    constructor(building){
+        const {name, description, number = 0, cookiesPerSecond, cost} = building
+        this._name = name
+        this._description = description
+        this._number = number
+        this._cookiesPerSecond = cookiesPerSecond
+        this._cost = cost
+    }
+    
+
+    get name(){
+        return this._name
     }
 
+    get description(){
+        return this._description
+    }
+
+    get number(){
+        return this._number
+    }
+
+    get cookiesPerSecond(){
+        return this._cookiesPerSecond
+    }
+
+    get cost(){
+        return this._cost
+    }
+
+    buy(){
+        this._number += 1
+        this._cost = Math.ceil(this._cost * 1.15)
+        console.log(this._cost)
+    }
+    
+    
+    
+
 }
+

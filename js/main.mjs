@@ -1,9 +1,6 @@
 import Bakery from '../js/classes/bakery.mjs';
 console.log(Bakery)
 
-import Building from '../js/classes/building.mjs';
-console.log(Building)
-
 import { store } from '../js/classes/store.mjs';
 console.log(store)
 
@@ -13,6 +10,7 @@ console.log(buildings)
 
 //information de la boulangerie 
 const myBakery = new Bakery();
+store(myBakery)
 
 let titreBakery = document.querySelector('h2')
 titreBakery.innerHTML = myBakery.name
@@ -26,9 +24,6 @@ perSecondSpan.innerHTML = myBakery.cookiesPerSecond
     
 //ajout du nombre de cookies
 let bigCookie = document.getElementById('bigCookie');
-
-
-
 
 //au clic, une icone apparait et disparait
 bigCookie.addEventListener('click', (e) => {
@@ -52,22 +47,87 @@ bigCookie.addEventListener('click', (e) => {
         bigCookie.removeChild(iconePlus)
     });
 
-    for (let i = 0; i < buildings.length-1; i++){
-        let divTuile = document.getElementById(`building-${buildings[i].name.toLowerCase()}`)
-        let nextDivTuile = document.getElementById(`building-${buildings[i+1].name.toLowerCase()}`)  
-        let lastTuile = document.getElementById(`building-${buildings[i+2].name.toLowerCase()}`)  
-        if (myBakery.cookies >= buildings[i].cost){
+    for (let i = 0; i < myBakery.buildings.length-2; i++){
+        let divTuile = document.getElementById(`building-${myBakery.buildings[i].name.toLowerCase()}`)
+        let nextDivTuile = document.getElementById(`building-${myBakery.buildings[i+1].name.toLowerCase()}`)  
+        let lastTuile = document.getElementById(`building-${myBakery.buildings[i+2].name.toLowerCase()}`)  
+        if (myBakery.cookies >= myBakery.buildings[i].cost){
             divTuile.classList.remove("locked")
             divTuile.classList.remove("disabled")
             divTuile.className = "unlocked enabled"
             nextDivTuile.classList.remove("locked")
             nextDivTuile.className = "disabled"  
             lastTuile.style.display = 'flex'
-        }
-            // cursor.className = cursor.className.replace(/\bmystyle\b/g, "unlocked enabled")
-        }
 
         }
+        
+    }
+
+})
+
+
+function handlecheck() {
+    let numberTuile = this.querySelector('.number')
+    let costTuile = this.querySelector('.cost')
+    myBuilding.number = numberTuile.innerHTML
+    myBuilding.cost = costTuile.innerHTML
+    myBuilding.buy()
+    numberTuile.innerHTML = myBuilding.number
+    costTuile.innerHTML = myBuilding.cost
+
+}
+
+// for (let i = 0; i < buildings.length-1; i++){
+//     let divTuile = document.getElementById(`building-${buildings[i].name.toLowerCase()}`)
+//     let numberTuile = document.getElementsByClassName('number')
+//     numberTuile.style.display = 'none'
+//     if (divTuile.className = "unlocked enabled"){
+//         divTuile.addEventListener('click', (e) => {
+//         numberTuile.innerHTML = myBuilding.buy()
+//         console.log(myBuilding.buy())
+
+//     })
+// }
+// }
+// const myBuilding = new Building();
+
+// for (let i = 0; i < buildings.length-1; i++){
+//     let divTuile = document.getElementById(`building-${buildings[i].name.toLowerCase()}`)
+//     let numberTuile = document.getElementsByClassName('number')
+//     numberTuile.style.display = 'none'
+//     if (divTuile.className = "unlocked enabled"){
+//         divTuile.addEventListener('click', (e) => {
+//         Building.buy()
+//     // newBuilding.buy() 
+//     // divNumber.innerHTML = newBuilding.number
+//     // divcost.innerHTML = newBuilding.cost
+
+//     })
+// }
+// }
+// //information des buildings
+// const myBuilding = new Building();
+
+// //nom des buildings
+// let titreBuilding = document.getElementsByClassName('name')
+// titreBuilding.innerHTML = myBuilding.name
+
+// //coût des buildings
+// let buildingCost = document.getElementsByClassName('cost')
+// // console.log(stockSpan)
+// buildingCost.innerHTML = myBuilding.cost
+    
+// //tuile selectionner building
+// for(let i = 0; i < buildings.length-1; i++){
+// let divTuile = document.getElementById(`building-${buildings[i].name.toLowerCase()}`) 
+//     divTuile.addEventListener('click', (e) => {
+//             if (divTuile.className = "unlocked enabled"){
+//                 stockSpan.innerHTML = myBakery.bakeCookies(myBakery.cookiesPerClick)
+//                 myBuilding.cost
+//             console.log(myBuilding.buy())
+//         }
+//     })
+// }
     // if (myBakery.cookies >= 5){
     //     cursor.classList.remove("locked")
     //     cursor.classList.remove("disabled")
@@ -84,7 +144,7 @@ bigCookie.addEventListener('click', (e) => {
     // }
   
         
-)
+
 
 
 

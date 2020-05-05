@@ -2,12 +2,21 @@
 
 import { buildings } from "../data.mjs"
 
-//création élément div building
-export const store = document.getElementById('buildings')
+import Building from './building.mjs';
+console.log(Building)
 
-for (let i = 0; i < buildings.length; i++){
+//création élément div building
+export const store = (bakery) => {
+const store = document.getElementById('buildings')
+//information des buildings
+
+// let numberTuile = document.getElementsByClassName('number')
+// numberTuile.innerHTML = myBuilding.number
+// console.log(myBuilding.number)
+
+for (let i = 0; i < bakery.buildings.length; i++){
     let divTuile = document.createElement('div')
-    divTuile.id = `building-${buildings[i].name.toLowerCase()}`
+    divTuile.id = `building-${bakery.buildings[i].name.toLowerCase()}`
     divTuile.className = 'locked disabled'
     store.appendChild(divTuile)
 
@@ -17,24 +26,50 @@ for (let i = 0; i < buildings.length; i++){
 
     let nameTuile = document.createElement('div')
     nameTuile.className = 'name'
-    nameTuile.innerHTML = buildings[i].name
+    nameTuile.innerHTML = bakery.buildings[i].name
     divTuile.appendChild(nameTuile)
 
     let costTuile = document.createElement('div')
     costTuile.className = 'cost'
-    costTuile.innerHTML = buildings[i].cost
+    costTuile.innerHTML = bakery.buildings[i].cost
     divTuile.appendChild(costTuile)
 
     let numberTuile = document.createElement('div')
     numberTuile.className = 'number'
+    numberTuile.innerHTML = bakery.buildings[i].number
     divTuile.appendChild(numberTuile)
+    console.log(numberTuile.innerHTML)
 
-    if (buildings.length - 3 > i) {
+    if (bakery.buildings.length - 3 > i) {
         divTuile.style.display = 'flex'
     } else {
         divTuile.style.display = 'none'
     }
+
+    divTuile.addEventListener('click', () => {
+        if (divTuile.className == "unlocked enabled") {
+        bakery.buildings[i].buy()
+        divTuile.querySelector('.number').innerHTML = bakery.buildings[i].number
+        divTuile.querySelector('.cost').innerHTML = bakery.buildings[i].cost
+     }
+    })
+
 } 
+}
+
+// for (let i = 0; i < buildings.length-1; i++){
+//     let divTuile = document.getElementById(`building-${buildings[i].name.toLowerCase()}`)
+//     let numberTuile = document.getElementsByClassName('number')
+//     numberTuile.style.display = 'none'
+//     if (divTuile.className = "unlocked enabled"){
+//         divTuile.addEventListener('click', (e) => {
+//         Building.buy()
+
+
+//     })
+// }
+// }
+
 
 
 
