@@ -1,7 +1,7 @@
 import Bakery from '../js/classes/bakery.mjs';
 console.log(Bakery)
 
-import { store } from '../js/classes/store.mjs';
+import { store } from './dom/store.mjs';
 console.log(store)
 
 import { buildings } from "./data.mjs"
