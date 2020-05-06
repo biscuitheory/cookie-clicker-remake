@@ -1,15 +1,13 @@
-//création 10 premières tuiles (boucle ?)
-
 import { buildings } from "../data.mjs"
 
 import Building from './building.mjs';
 console.log(Building)
 
-//création élément div building
+// Création élément div container des batiments
 export const store = (bakery) => {
 const store = document.getElementById('buildings')
 
-//information des buildings
+// Création 10 premières tuiles
 for (let i = 0; i < bakery.buildings.length; i++){
     let divTuile = document.createElement('div')
     divTuile.id = `building-${bakery.buildings[i].name.toLowerCase()}`
@@ -36,6 +34,7 @@ for (let i = 0; i < bakery.buildings.length; i++){
     divTuile.appendChild(numberTuile)
     console.log(numberTuile.innerHTML)
 
+    // Gérer l'affichage des tuiles 
     if (bakery.buildings.length - 3 > i) {
         divTuile.style.display = 'flex'
     } else {
@@ -60,15 +59,38 @@ for (let i = 0; i < bakery.buildings.length; i++){
         // pour afficher dynamiquement sur la page le nombre de batiments achetés, le cout et le stock cookies
         divTuile.querySelector('.number').innerHTML = bakery.buildings[i].number
         divTuile.querySelector('.cost').innerHTML = bakery.buildings[i].cost
-        document.getElementById('cookiesStock').querySelector('span').innerHTML = bakery.cookies
-        document.getElementById('cookiesPerSecond').querySelector('span').innerHTML = bakery.cookiesPerSecond
+        document.getElementById('cookiesStock').querySelector('span').innerHTML = Math.floor(bakery.cookies)
+        document.getElementById('cookiesPerSecond').querySelector('span').innerHTML = Math.round(bakery.cookiesPerSecond * 10) / 10
         }
-    
-        }
+    }
 
+        // produire automatiquement les cookies
+        let autoCookie = setInterval ( doSomething, 1000);
+        function doSomething () {
+            bakery.bakeCookies(bakery.cookiesPerSecond)
+            document.getElementById('cookiesStock').querySelector('span').innerHTML = Math.floor(bakery.cookies)
+            console.log(bakery.bakeCookies(bakery.cookiesPerSecond))   
+            
+            // Autrement si compte cookies < cout d'un batiment, on desactive la tuile
+        if (bakery.bakeCookies(bakery.cookiesPerSecond) <= bakery.buildings[i].cost){
+            divTuile.classList.remove("enabled")
+            divTuile.className = "disabled"
+            // pour faire apparaître le nombre de batiments achetés
+            divTuile.querySelector('.number').style.display = 'flex'
+        
+            if (bakery.bakeCookies(bakery.cookiesPerSecond) >= bakery.buildings[i].cost) {
+                divTuile.classList.remove("disabled")
+                divTuile.classList.add("enabled")
+            }
+        }
+        }
+        
     })
-} 
+}    
 }
+
+
+
 
 
 
@@ -102,4 +124,3 @@ for (let i = 0; i < bakery.buildings.length; i++){
 // let numberGrandma = document.createElement('div')
 // numberGrandma.className = 'number'
 // grandma.appendChild(numberGrandma)
-

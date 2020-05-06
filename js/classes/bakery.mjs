@@ -22,6 +22,10 @@ export default class Bakery{
         return this._cookies
     }
 
+    set cookies(cookies){
+        this._cookies = cookies
+    }
+
     get buildings(){
         return this._buildings
     }
@@ -34,15 +38,18 @@ export default class Bakery{
         return this._cookiesPerSecond
     }
 
+    set cookiesPerSecond(cookiesPerSecond){
+        this._cookiesPerSecond = cookiesPerSecond
+    }
 
-
-    //précise le nombre de cookies dans stock #cookies
+    // Retourne le nombre de cookies du stock #cookies
     bakeCookies(howMany){
         return this._cookies += howMany
     }
 
+    // Acheter un bâtiment dee production
     buyBuilding(which){
-        // console.log('Cookie', this._cookies)
+        //console.log('Cookie', this._cookies)
         this._cookies = this._cookies - which.cost
         which.buy()
         this._cookiesPerSecond = which.cookiesPerSecond

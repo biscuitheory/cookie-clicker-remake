@@ -7,9 +7,6 @@
 }
 
 @keyframes plusOne {
-    0% {
-        top: 110px;
-    }
     20% {
         opacity: 0.5;
     }

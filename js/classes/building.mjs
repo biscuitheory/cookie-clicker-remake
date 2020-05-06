@@ -1,7 +1,7 @@
 
 export default class Building {
     constructor(building){
-        const {name, description, number = 1, cookiesPerSecond, cost} = building
+        const {name, description, number = 0, cookiesPerSecond, cost} = building
         this._name = name
         this._description = description
         this._number = number
@@ -33,6 +33,7 @@ export default class Building {
         this._cost = cost
     }
 
+    // Acheter un bâtiment de production
     buy(){
         console.log('Coucou')
         this._number += 1
