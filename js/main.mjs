@@ -47,22 +47,4 @@ bigCookie.addEventListener('click', (e) => {
     iconePlus.addEventListener('animationend', (e) => {
         bigCookie.removeChild(iconePlus)
     });
-
-    for (let i = 0; i < myBakery.buildings.length-2; i++){
-        let divTuile = document.getElementById(`building-${myBakery.buildings[i].name.toLowerCase()}`)
-        let nextDivTuile = document.getElementById(`building-${myBakery.buildings[i+1].name.toLowerCase()}`)  
-        let lastTuile = document.getElementById(`building-${myBakery.buildings[i+2].name.toLowerCase()}`)  
-        if (myBakery.cookies >= myBakery.buildings[i].cost){
-            divTuile.classList.remove("locked")
-            divTuile.classList.remove("disabled")
-            divTuile.className = "unlocked enabled"
-            nextDivTuile.classList.remove("locked")
-            nextDivTuile.className = "disabled"  
-            lastTuile.style.display = 'flex'
-        }        
-    }
-})
-
-
-
-
+});

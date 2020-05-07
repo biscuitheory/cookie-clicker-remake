@@ -39,7 +39,7 @@ const store = document.getElementById('buildings')
             divTuile.style.display = 'flex'
         } else {
             divTuile.style.display = 'none'
-        }
+        }       
 
         // Achat d'un bâtiment de type Cursor
         divTuile.addEventListener('click', () => {
@@ -62,30 +62,37 @@ const store = document.getElementById('buildings')
                     document.getElementById('cookiesStock').querySelector('span').innerHTML = Math.floor(bakery.cookies)
                     document.getElementById('cookiesPerSecond').querySelector('span').innerHTML = Math.round(bakery.cookiesPerSecond * 10) / 10
                 }
-            }
 
-            // produire automatiquement les cookies
-            setInterval ( doSomething, 1000);
-            function doSomething () {
-                bakery.bakeCookies(bakery.cookiesPerSecond)
-                document.getElementById('cookiesStock').querySelector('span').innerHTML = Math.floor(bakery.cookies)
-                console.log(bakery.bakeCookies(bakery.cookiesPerSecond))   
-                
                 // Autrement si compte cookies < cout d'un batiment, on desactive la tuile
                 if (bakery.bakeCookies(bakery.cookiesPerSecond) <= bakery.buildings[i].cost){
                     divTuile.classList.remove("enabled")
                     divTuile.className = "disabled"
-                    // pour faire apparaître le nombre de batiments achetés
-                    divTuile.querySelector('.number').style.display = 'flex'
-                
-                    if (bakery.bakeCookies(bakery.cookiesPerSecond) >= bakery.buildings[i].cost) {
-                        divTuile.classList.remove("disabled")
-                        divTuile.classList.add("enabled")
-                    }
                 }
-            }
-            
+            }        
         })
+
+        // produire automatiquement les cookies
+        setInterval ( doSomething, 10000);
+        function doSomething () {
+            bakery.bakeCookies(bakery.cookiesPerSecond)
+            document.getElementById('cookiesStock').querySelector('span').innerHTML = Math.floor(bakery.cookies)
+            console.log(bakery.bakeCookies(bakery.cookiesPerSecond))   
+            
+            // gestion affichage des éléments dans les tuiles en fonction de l'état : unlocked > locked; disabled > enabled
+            for (let i = 0; i < bakery.buildings.length-2; i++){
+                let divTuile = document.getElementById(`building-${bakery.buildings[i].name.toLowerCase()}`)
+                let nextDivTuile = document.getElementById(`building-${bakery.buildings[i+1].name.toLowerCase()}`)  
+                let lastTuile = document.getElementById(`building-${bakery.buildings[i+2].name.toLowerCase()}`)  
+                if (bakery.cookies >= bakery.buildings[i].cost){
+                    divTuile.classList.remove("locked")
+                    divTuile.classList.remove("disabled")
+                    divTuile.className = "unlocked enabled"
+                    nextDivTuile.classList.remove("locked")
+                    nextDivTuile.className = "disabled"  
+                    lastTuile.style.display = 'flex'
+                }        
+            }                          
+        }
     }    
 }
 
